@@ -1,19 +1,32 @@
-.card {
-    border: solid 2px black;
+.card, .headerCard {
+    border: solid 3px black;
     border-radius: 16px;
     height: 300px;
     width: 450px;
     display: flex;
     flex-direction: column;
     position: relative;
+    transition: all 200ms ease;   
+}
+
+.card {
+    cursor: pointer;
+}
+
+.headerCard {
     transform: translate(-15px, -15px);
-    box-shadow: 15px 15px 0 var(--primary-color), 15px 15px 0 2px black;   
+    box-shadow: 15px 15px 0 var(--primary-color), 15px 15px 0 3px black;
+}
+
+.card:hover {
+    transform: translate(-15px, -15px);
+    box-shadow: 15px 15px 0 var(--primary-color), 15px 15px 0 3px black;
 }
 
 .image {
     height: 85%;
     padding: 20px;
-    border-bottom: solid 2px black;
+    border-bottom: solid 3px black;
 }
 
 .item {

@@ -12,7 +12,7 @@ const Header = () => {
                 <Link to={`/shop`} className={classes.button}>Explore Now</Link>
             </div>
             <div className={classes.rightSide}>
-                <Card />
+                <Card isHeader={true}/>
             </div>
         </div>
     </section>

@@ -14,11 +14,17 @@
 .navContent {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 48px;
     max-width: 1440px;
     width: 100%;
+}
+
+.navContent > :nth-child(2) {
+    margin: auto;
+    position: relative;
+    left: -80px;
 }
 
 .logo {

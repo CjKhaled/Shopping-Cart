@@ -1,8 +1,8 @@
 import classes from '../styles/Card.module.css'
 
-const Card = () => {
+const Card = ({ isHeader = false }) => {
   return (
-    <div className={classes.card}>
+    <div className={isHeader ? classes.headerCard : classes.card}>
       <div className={classes.image}>An Image</div>
       <div className={classes.item}>
         <h2 className={classes.name}>An Item</h2>

@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom"
 import Navbar from "../components/Navbar"
+import ShopContent from "../components/ShopContent"
 
 const Shop = () => {
   return (
     <div>
       <Navbar />
-      <h1>This is the ShopPage</h1>
-      <Link to={`/`}>Go Home</Link>
+      <ShopContent />
     </div>
   )
 }

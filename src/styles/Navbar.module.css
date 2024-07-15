@@ -1,0 +1,82 @@
+:root {
+    --primary-color: #f8604f;
+    --foreground-color: #fffcf2;
+    --secondary-color: white;
+}
+
+.nav {
+    background-color: var(--primary-color);
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+}
+
+.navContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    max-width: 1440px;
+    width: 100%;
+}
+
+.logo {
+    color: white;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.navLinks > * {
+    text-decoration: none;
+    color: var(--foreground-color);
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+}
+
+.activeNav {
+    font-weight: 600;
+}
+
+.navLinks > *::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--foreground-color);
+    transition: width 500ms ease;
+}
+
+.navLinks > *:hover::after {
+    width: 100%;
+}
+
+.cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.numberItems {
+    color: var(--primary-color);
+    background-color: var(--foreground-color);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 600;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -16px;
+    right: -14px;
+}

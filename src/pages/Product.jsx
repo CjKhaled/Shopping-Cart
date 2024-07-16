@@ -1,10 +1,14 @@
+import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar"
+import ProductContent from "../components/ProductContent"
 
 const Product = () => {
+  const { title } = useParams();
+
   return (
     <div>
       <Navbar />
-      <h1>This is a product page!</h1>
+      <ProductContent title={title} />
     </div>
   )
 }

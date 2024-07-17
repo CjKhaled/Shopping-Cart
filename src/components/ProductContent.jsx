@@ -4,7 +4,7 @@ import { useState } from "react";
 import classes from "../styles/Product.module.css"
 
 
-const ProductContent = ({ title }) => {
+const ProductContent = ({ title, image, price }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeIndex2, setActiveIndex2] = useState(0);
     const [itemCount, setItemCount] = useState(1);
@@ -31,12 +31,12 @@ const ProductContent = ({ title }) => {
     <section className={classes.container}>
         <div className={classes.productContent}>
             <div className={classes.leftSide}>
-                An Image
+                <img src={image} alt={title} />
             </div>
             <div className={classes.rightSide}>
                 <div className={classes.header}>
                   <h1 className={classes.title}>{title}</h1>
-                   <h2 className={classes.price}>$300</h2> 
+                   <h2 className={classes.price}>${price}</h2> 
                 </div>
                 <p className={classes.text}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis cum explicabo veniam maxime earum sunt praesentium debitis optio eaque deleniti! Quia aspernatur minima illo laboriosam.</p>
                 <div className={classes.userChoose}>

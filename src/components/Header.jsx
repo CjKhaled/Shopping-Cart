@@ -1,8 +1,39 @@
 import Card from "./Card"
 import classes from "../styles/Header.module.css"
 import { Link } from "react-router-dom"
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const APILink = 'https://fakestoreapi.com/products?limit=6'
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(APILink);
+        if (!response.ok) {
+          throw new Error(`HTTP error: Status ${response.status}`)
+        }
+        const responseData = await response.json();
+        setData(responseData);
+        setError(null)
+      } catch (err) {
+        setError(err.message)
+        setData(null)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData();
+  }, [])
+
+  if (loading) {
+    return <h1>Loading...</h1>
+  } 
+
   return (
     <section className={classes.container}>
         <div className={classes.headerContent}>
@@ -12,7 +43,9 @@ const Header = () => {
                 <Link to={`/shop`} className={classes.button}>Explore Now</Link>
             </div>
             <div className={classes.rightSide}>
-                <Card isHeader={true} title={`item1`}/>
+                <Card isHeader={true} 
+                title={data[0].title} 
+                price={data[0].price} image={data[0].image} />
             </div>
         </div>
     </section>

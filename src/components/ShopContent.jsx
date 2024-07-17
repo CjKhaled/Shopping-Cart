@@ -1,5 +1,6 @@
 import Card from "./Card"
 import classes from '../styles/Shop.module.css'
+import animation from '../styles/Load.module.css'
 import { useEffect, useState } from "react";
 
 const ShopContent = () => {
@@ -7,7 +8,6 @@ const ShopContent = () => {
   const indexes = [0, 1, 2, 3, 4, 5]
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,9 +18,7 @@ const ShopContent = () => {
         }
         const responseData = await response.json();
         setData(responseData);
-        setError(null)
       } catch (err) {
-        setError(err.message)
         setData(null)
       } finally {
         setLoading(false)
@@ -31,7 +29,11 @@ const ShopContent = () => {
   }, [])
 
   if (loading) {
-    return <h1>Loading...</h1>
+    return (
+      <div className={animation.container}>
+        <div className={animation.loader}></div>
+      </div>
+    ) 
   }
 
   return (

@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
-import Navbar from "../components/Navbar"
 import ProductContent from "../components/ProductContent"
 import animation from '../styles/Load.module.css'
 import { useEffect, useState } from "react";
 
 
-const Product = () => {
+const Product = ({ addToCart, itemsToAdd, incrementCount, decrementCount }) => {
   const APILink = 'https://fakestoreapi.com/products?limit=6';
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -40,18 +39,14 @@ const Product = () => {
   }
 
   const findProduct = () => {
-    const product = indexes.filter(index => data[index].title == title);
+    const product = indexes.filter(index => data[index].title.trim().toLowerCase() == title.trim().toLowerCase());
     return data[product]
   }
 
   const product = findProduct();
 
-  return (
-    <div>
-      <Navbar />
-      <ProductContent title={title} image={product.image} price={product.price} />
-    </div>
-  )
+  return <ProductContent title={title} image={product.image} price={product.price} addToCart={addToCart} itemsToAdd={itemsToAdd} incrementCount={incrementCount} decrementCount={decrementCount} />
+    
 }
 
 export default Product

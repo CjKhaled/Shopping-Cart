@@ -4,10 +4,9 @@ import { useState } from "react";
 import classes from "../styles/Product.module.css"
 
 
-const ProductContent = ({ title, image, price }) => {
+const ProductContent = ({ title, image, price, addToCart, itemsToAdd, decrementCount, incrementCount }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeIndex2, setActiveIndex2] = useState(0);
-    const [itemCount, setItemCount] = useState(1);
     const colors = ['red', 'grey', 'green', '#7CB9E8'];
     const sizes = ['S', 'M', 'L'];
     
@@ -17,14 +16,6 @@ const ProductContent = ({ title, image, price }) => {
     
     const handleClick2 = (index) => {
         setActiveIndex2(index)
-    }
-
-    const decrementCount = () => {
-        itemCount !== 1 && setItemCount(itemCount - 1); 
-    }
-
-    const incrementCount = () => {
-        itemCount !== 9 && setItemCount(itemCount + 1);
     }
 
   return (
@@ -58,10 +49,10 @@ const ProductContent = ({ title, image, price }) => {
                 <div className={classes.userInput}>
                     <div className={classes.numItems}>
                         <FiMinus size={`26px`} color="#f8604f" onClick={decrementCount} />
-                        <h3 className={classes.amount}>{itemCount}</h3>
+                        <h3 className={classes.amount}>{itemsToAdd}</h3>
                         <FiPlus size={`26px`} color="#f8604f" onClick={incrementCount} />
                     </div>
-                    <button className={classes.button}>ADD TO CART <ImArrowUpRight2 color="white" size={`20px`} /></button>
+                    <button className={classes.button} onClick={addToCart}>ADD TO CART <ImArrowUpRight2 color="white" size={`20px`} /></button>
                 </div>
             </div>
         </div>

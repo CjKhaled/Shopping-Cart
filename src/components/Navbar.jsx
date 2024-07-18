@@ -3,7 +3,7 @@ import Cart from "./Cart"
 import classes from '../styles/Navbar.module.css'
 
 
-const Navbar = ({ numItems }) => {
+const Navbar = ({ items }) => {
   return (
     <nav className={classes.nav}>
         <div className={classes.navContent}>
@@ -12,7 +12,7 @@ const Navbar = ({ numItems }) => {
                 <NavLink className={({isActive}) => isActive ? classes.activeNav : ""} to={`/`}>Home</NavLink>
                 <NavLink className={({isActive}) => isActive ? classes.activeNav : ""} to={`/shop`}>Shop</NavLink>
             </ul>
-            <Cart numItems={numItems} />
+            <Cart items={items} />
         </div>
     </nav>
   )

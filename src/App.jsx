@@ -1,35 +1,45 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
 import Navbar from './components/Navbar.jsx'
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Error from "./pages/Error";
 import Product from "./pages/Product";
+import Checkout from './pages/Checkout.jsx';
+import { useState } from "react"
+import data from './data/data.js';
 
 const App = () => {
-    const [itemCount, setItemCount] = useState(0);
-    const [itemsToAdd, setItemsToAdd] = useState(1);
-    
-    const addToCart = () => {
-        setItemCount(itemCount + itemsToAdd);
+    const [items, setItems] = useState(1);
+
+    const addToCart = (title, price, count) => {
+        const result = data.find(item => item.name == title);
+        if (result) {
+            result.count += count;
+        } else {
+            data.push({name: title, price: price, count: count});
+        }
+
+        let counter = 0;
+        data.map(item => counter += 1 * item.count)
+        setItems(counter)
     }
 
-    const decrementCount = () => {
-        itemsToAdd !== 1 && setItemsToAdd(itemsToAdd - 1)
-    }
-
-    const incrementCount = () => {
-        itemsToAdd !== 9 && setItemsToAdd(itemsToAdd + 1)
+    const removeFromCart = (title) => {
+        const index = data.indexOf(data.find(item => item.name == title))
+        const amountToRemove = data[index].count;
+        data.splice(index, 1);
+        setItems(items - amountToRemove);
     }
 
 
   return (
     <BrowserRouter>
-        <Navbar numItems={itemCount} />
+        <Navbar items={items} />
         <Routes>
             <Route path='/' element={<Home />} errorElement={<Error />} />
             <Route path='/shop' element={<Shop />} />
-            <Route path='/shop/:title' element={<Product addToCart={addToCart} itemsToAdd={itemsToAdd} incrementCount={incrementCount} decrementCount={decrementCount} />} />
+            <Route path='/shop/:title' element={<Product items={items} addToCart={addToCart} />} />
+            <Route path='/checkout' element={<Checkout removeFromCart={removeFromCart} />} />
         </Routes>
     </BrowserRouter>
   )

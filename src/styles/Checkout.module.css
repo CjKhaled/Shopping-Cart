@@ -1,0 +1,87 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+.checkoutContent {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width: 1440px;
+    gap: 100px;
+    padding: 0 48px;
+}
+
+.orderTitle {
+    font-size: 56px;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemTitle {
+    font-size: 22px;
+    color: black;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.amount {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.rightSide {
+    border: solid 2px black;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.total {
+    border-bottom: solid 2px black;
+    padding-bottom: 30px;
+}
+
+.button {
+    color: white;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    border: solid 2px black;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    width: fit-content;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.button:hover {
+    transform: translate(10px, 10px);
+    box-shadow: -10px -10px 0 black;
+}

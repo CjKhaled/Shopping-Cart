@@ -4,7 +4,7 @@ import animation from '../styles/Load.module.css'
 import { useEffect, useState } from "react";
 
 
-const Product = ({ addToCart, itemsToAdd, incrementCount, decrementCount }) => {
+const Product = ({ addToCart }) => {
   const APILink = 'https://fakestoreapi.com/products?limit=6';
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -45,7 +45,7 @@ const Product = ({ addToCart, itemsToAdd, incrementCount, decrementCount }) => {
 
   const product = findProduct();
 
-  return <ProductContent title={title} image={product.image} price={product.price} addToCart={addToCart} itemsToAdd={itemsToAdd} incrementCount={incrementCount} decrementCount={decrementCount} />
+  return <ProductContent title={title} image={product.image} price={product.price} addToCart={addToCart} />
     
 }
 

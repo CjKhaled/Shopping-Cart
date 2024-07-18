@@ -4,18 +4,27 @@ import { useState } from "react";
 import classes from "../styles/Product.module.css"
 
 
-const ProductContent = ({ title, image, price, addToCart, itemsToAdd, decrementCount, incrementCount }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [activeIndex2, setActiveIndex2] = useState(0);
+const ProductContent = ({ title, image, price, addToCart }) => {
+    const [productColor, setProductColor] = useState(0);
+    const [productSize, setProductSize] = useState(0);
+    const [itemCount, setItemCount] = useState(1);
     const colors = ['red', 'grey', 'green', '#7CB9E8'];
     const sizes = ['S', 'M', 'L'];
     
     const handleClick = (index) => {
-        setActiveIndex(index)
+        setProductColor(index)
     }
     
     const handleClick2 = (index) => {
-        setActiveIndex2(index)
+        setProductSize(index)
+    }
+
+    const decrementCount = () => {
+        itemCount !== 1 && setItemCount(itemCount - 1)
+    }
+
+    const incrementCount = () => {
+        itemCount !== 9 && setItemCount(itemCount + 1)
     }
 
   return (
@@ -34,7 +43,7 @@ const ProductContent = ({ title, image, price, addToCart, itemsToAdd, decrementC
                     <h3 className={classes.secondTitle}>CHOOSE COLOR</h3>
                     <div className={classes.colors}>
                         {colors.map((color, index) => (
-                            <div key={index} className={index == activeIndex ? classes.activeColor : classes.color} onClick={() => handleClick(index)} style={{backgroundColor: color}}></div>
+                            <div key={index} className={index == productColor ? classes.activeColor : classes.color} onClick={() => handleClick(index)} style={{backgroundColor: color}}></div>
                         ))}
                     </div>
                 </div>
@@ -42,17 +51,17 @@ const ProductContent = ({ title, image, price, addToCart, itemsToAdd, decrementC
                     <h3 className={classes.secondTitle}>CHOOSE SIZE</h3>
                     <div className={classes.sizes}>
                         {sizes.map((size, index) => (
-                            <div key={index} className={index == activeIndex2 ? classes.activeSize : classes.size} onClick={() => handleClick2(index)}>{size}</div>
+                            <div key={index} className={index == productSize ? classes.activeSize : classes.size} onClick={() => handleClick2(index)}>{size}</div>
                         ))}
                     </div>
                 </div>
                 <div className={classes.userInput}>
                     <div className={classes.numItems}>
                         <FiMinus size={`26px`} color="#f8604f" onClick={decrementCount} />
-                        <h3 className={classes.amount}>{itemsToAdd}</h3>
+                        <h3 className={classes.amount}>{itemCount}</h3>
                         <FiPlus size={`26px`} color="#f8604f" onClick={incrementCount} />
                     </div>
-                    <button className={classes.button} onClick={addToCart}>ADD TO CART <ImArrowUpRight2 color="white" size={`20px`} /></button>
+                    <button className={classes.button} onClick={() => addToCart(title, price, itemCount)}>ADD TO CART <ImArrowUpRight2 color="white" size={`20px`} /></button>
                 </div>
             </div>
         </div>

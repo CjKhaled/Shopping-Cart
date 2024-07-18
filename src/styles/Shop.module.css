@@ -1,29 +1,29 @@
 .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .shopContent {
-    display: flex;
-    flex-direction: column;
-    width: 1440px;
-    gap: 40px;
-    padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  width: 1440px;
+  gap: 40px;
+  padding: 0 48px;
 }
 
 .title {
-    font-size: 48px;
-    text-align: center;
+  font-size: 48px;
+  text-align: center;
 }
 
 .items {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
 }

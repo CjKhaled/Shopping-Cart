@@ -1,7 +1,7 @@
-import Header from "../components/Header"
+import Header from "../components/Header";
 
 const Home = () => {
-  return <Header />
-}
+  return <Header />;
+};
 
-export default Home
+export default Home;

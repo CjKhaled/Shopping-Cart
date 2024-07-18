@@ -1,7 +1,7 @@
-import CheckoutContent from "../components/CheckoutContent"
+import CheckoutContent from "../components/CheckoutContent";
 
 const Checkout = ({ removeFromCart }) => {
-  return <CheckoutContent removeFromCart={removeFromCart} />
-}
+  return <CheckoutContent removeFromCart={removeFromCart} />;
+};
 
-export default Checkout
+export default Checkout;

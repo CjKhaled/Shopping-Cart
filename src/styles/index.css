@@ -1,11 +1,11 @@
 /* General styles for all pages */
 
 * {
-    padding: 0;
-    margin: 0;
-    font-family: "Raleway";
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway";
 }
 
 body {
-    background-color: var(--foreground-color);
+  background-color: var(--foreground-color);
 }

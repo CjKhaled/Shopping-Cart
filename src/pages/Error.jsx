@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Error = () => {
   return (
@@ -6,7 +6,7 @@ const Error = () => {
       <h1>Error, Page not found</h1>
       <Link to={`/`}>Go Back Home</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Error
+export default Error;

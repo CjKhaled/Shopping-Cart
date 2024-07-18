@@ -1,53 +1,52 @@
 .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
 }
 
-
 .headerContent {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 1440px;
-    gap: 100px;
-    padding: 0 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1440px;
+  gap: 100px;
+  padding: 0 48px;
 }
 
 .title {
-    font-size: 48px;
+  font-size: 48px;
 }
 
 .decorate {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .leftSide {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .text {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .button {
-    color: white;
-    text-decoration: none;
-    background-color: var(--primary-color);
-    border: solid 1px black;
-    border-radius: 15px;
-    font-size: 20px;
-    font-weight: 600;
-    width: fit-content;
-    padding: 20px;
-    cursor: pointer;
-    transition: all 300ms ease;
+  color: white;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  border: solid 1px black;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  width: fit-content;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 300ms ease;
 }
 
 .button:hover {
-    transform: translate(10px, 10px);
-    box-shadow: -10px -10px 0 black;
+  transform: translate(10px, 10px);
+  box-shadow: -10px -10px 0 black;
 }
